@@ -33,6 +33,7 @@ public class PrincipalController implements ActionListener, ListSelectionListene
 
     public void anadirListener(ActionListener alistener, ListSelectionListener llistener){
         vista.getBtEliminar().addActionListener(alistener);
+        vista.getBtImportar().addActionListener(alistener);
         vista.getBtExportar().addActionListener(alistener);
         vista.getBtGuardar().addActionListener(alistener);
         vista.getBtNuevo().addActionListener(alistener);
@@ -116,11 +117,11 @@ public class PrincipalController implements ActionListener, ListSelectionListene
                 String[] partes = ruta.split("\\.");
                 // Elegir funcion a ejecutar dependiendo de la extension
                 if(partes[partes.length-1].equals("txt")){
-                    leerFicheroTextoPlano(ruta);
+                    escribirFicheroTextoPlano(ruta);
                 } else if (partes[partes.length-1].equals("xml")){
-                    leerFicheroXML(ruta);
+                    escribirFicheroXML(ruta);
                 } else {
-                    deserializarAlumnos(ruta);
+                    serializarAlumnos(ruta);
                 }
             }
         }
